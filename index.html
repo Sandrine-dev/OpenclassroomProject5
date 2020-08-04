@@ -18,58 +18,66 @@
     </head>
     <body>
         <!--Ils contiendra le titre et la nav menu plus le panier-->
-        <header> 
-          <nav>
-            <a href="index.html"> Orinoco</a>
+      <header id="enTete" class="container-fluid">
+        <div class="row bg-brown">
+          <nav class="col navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand logo" href="index.html">Orinoco</a>
 
-            <ul>
-              <li >
-                <a href="index.html">Accueil</a>
-              </li>
-              <li>
-                <a href="#">Panier</a>
-              </li>
-            </ul>
-          </nav>
-
-        </header>
-
-            <h1>Bienvenue sur Orinoco, les ours en peluche</h1>
-
-        <section >
-
-            <h3>
-                Voici notre gamme d'ours en peluche!
-            </h3>
-
-            <div>
-                <!--Contiendra les ours en peluche, chacun dans un article-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div id="navbarContent" class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Panier</a>
+                </li>
+              </ul>
             </div>
+          </nav>
+        </div>
+      </header>
 
-        </section>
+      <div class="jumbotron container-fluid bg-lightbrown">
+        <h1>Bienvenue sur Orinoco, les ours en peluche</h1>
+      </div>
 
-        <footer >
-          <!--Contiendra mentions légales, résaux, contacts-->
-          <div>
-            <a href="#">Mentions légales</a>
+      <section class="container">
 
-            <a class="social" href="index.html" aria-describedby="facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
+        <h3 class="row">Voici notre gamme d'ours en peluche!</h3>
+    
+        <div id="Produits" class="row">
+            <!--Contiendra les ours en peluche, chacun dans un article-->
+        </div>
+    
+      </section>
 
-            <a class="social" href="index.html" aria-describedby="twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-
-            <a class="social" href="index.html" aria-describedby="instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="#">Contactez nous</a>
-
-          </div>
-        </footer>
-        
+      <footer class="container-fluid">
+        <!--Contiendra mentions légales, résaux, contacts-->
+        <div class="row bg-brown resaux">
+          <a href="#">Mentions légales</a>
+      
+          <a class="social" href="index.html" aria-describedby="facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+      
+          <a class="social" href="index.html" aria-describedby="twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+      
+          <a class="social" href="index.html" aria-describedby="instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+      
+          <a href="#">Contactez nous</a>
+      
+        </div>
+      </footer>
+      
+      <script src="java/index.js"></script>
     </body>
 
 </html>
