@@ -1,2 +1,26 @@
 @import "variable_overrides";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+$brown : #6D4C41;
+$lightbrown : #D7CCC8;
+
+.bg-brown{
+    background-color: $brown;
+}
+
+.bg-lightbrown{
+    background-color: $lightbrown;
+}
+
+.card {
+    align-items: center;
+    margin: 10px;
+    border: $brown solid 2px;
+    padding: 5px;
+    box-shadow: 5px 5px $lightbrown;
+}
+
+.btn {
+    padding-top: 5px;
+    align-self: stretch;
+}

@@ -353,6 +353,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
+  font-family: "Georgia", Times, serif;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -9908,6 +9909,26 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+.bg-brown {
+  background-color: #6D4C41;
+}
+
+.bg-lightbrown {
+  background-color: #D7CCC8;
+}
+
+.card {
+  align-items: center;
+  margin: 10px;
+  border: #6D4C41 solid 2px;
+  padding: 5px;
+  box-shadow: 5px 5px #D7CCC8;
+}
+
+.btn {
+  padding-top: 5px;
+  align-self: stretch;
 }
 
 /*# sourceMappingURL=style.css.map */
