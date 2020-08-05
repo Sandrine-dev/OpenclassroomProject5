@@ -14,6 +14,12 @@ ours.onreadystatechange = function (){ // traitement de la requête
     if (this.readyState == 4 && this.status == 200) {
         let data = JSON.parse(this.response)
         //console.log (this.response);
+        let presentation = "<h5 class='Nom card-title'> Je m'appelle " + data.name + "!</h5>";
+        presentation += "<img class='Images card-img-top' src=" + data.imageUrl + " alt= " + data.name + ">";
+        presentation += "<p class='Description card-txt'>" + data.description + "</p>"
+        presentation += "<h6>" + data.price + " €</h6>";
+
+        produitsP.innerHTML += presentation;
 
     } else if (this.readyState == 4 && this.status == 400){
         alert ("Erreur 404!");
