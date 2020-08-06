@@ -4,10 +4,10 @@ const urlParam = new URLSearchParams(strRequete);
 //console.log(urlParam);
 
 let produitsP = document.getElementById ("ProduitP"); // appel de l'id ProduitP
+
 let choix = document.createElement("select");
 choix.className = "liste"
 produitsP.appendChild(choix);
-
 
 let ours = new XMLHttpRequest (); //création de la variable requête
 
@@ -23,6 +23,7 @@ ours.onreadystatechange = function (){ // traitement de la requête
             presentation += "<img class='Images card-img-top' src=" + data.imageUrl + " alt= " + data.name + ">";
             presentation += "<p class='Description card-txt'>" + data.description + "</p>"
             presentation += "<h6>" + data.price / 100 + " €</h6>";
+            presentation += "<button type='button' id='add-cart' data-id='" + data.id + "' data-name='" + data.name + "' data-price='" + data.price / 100 + "' class='btn bg-brown text-white'> ajoutez au panier </button>";
 
         for (let i=0; i< couleurs.length; i++ ){
             let opt = couleurs[i];
@@ -43,3 +44,4 @@ ours.onreadystatechange = function (){ // traitement de la requête
 
 ours.open ("GET", "http://localhost:3000/api/teddies/"+ urlParam.get('id'),true); 
 ours.send (); //envoie de la requête
+
