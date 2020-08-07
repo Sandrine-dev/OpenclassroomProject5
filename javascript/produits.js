@@ -5,15 +5,6 @@ const urlParam = new URLSearchParams(strRequete);
 
 let produitsP = document.getElementById ("ProduitP"); // appel de l'id ProduitP
 let achat = document.getElementById ("achat");
-
-/*let choix = document.createElement("select");
-choix.className = "liste";
-achat.appendChild(choix);
-let vide = document.createElement ("option");
-    vide.textContent = " ";
-    vide.value = " ";
-choix.appendChild(vide);*/
-
 let choix = document.getElementById("choix");
 
 
@@ -59,91 +50,32 @@ ours.onreadystatechange = function (){ // traitement de la requête
                     alert ("Veuillez choisir une couleur!");
                 }
 
-                //stockPanier(data);
-                //prixTotal(prix);
+                stockPanier(data);
         })
 
         function stockPanier(data) {
             //console.log ("le produit choisie est ", data);
-            let produits = localStorage.getItem ("produits");
-            //console.log(produits);
+            let qte = localStorage.getItem (data._id);
             //console.log(typeof produits);
-            produits = parseInt(produits);
+           // produits = parseInt(produits);
 
-            if(produits){ //pour ajouter plusieurs fois
-                localStorage.setItem("produits", produits + 1);
-            } else {
-                localStorage.setItem("produits", 1);
+           if(qte === null){ 
+                localStorage.setItem(data._id, 1);
+            } 
+            else {
+                let i_qte = parseInt(qte);
+                localStorage.setItem(data._id, i_qte+1);
             }
-            //setItem(data);
-        }
-
-        function setItem(data){
-            //console.log("mon produit est", data);
-            let produitPanier = localStorage.getItem("produitsPanier");
-            produitPanier = JSON.parse(produitPanier);
-
-        //rajouter un if pour le nom du produit ou l'id.
-            if (produitPanier != null) {
-                if(produitPanier == undefined) {
-                    produitPanier = {
-                        ...produitPanier,
-                        [data.name] : data
-                    }
-                }
-                produitPanier[data.name] += 1;
-                
-            } else {
-                produitPanier = 1;
-                produitPanier = {
-                    [data.name]: data
-                }
-            }
-
-            localStorage.setItem("produitPanier", JSON.stringify(produitPanier));
-            //console.log("mes produits sont", produitPanier);
-            
         }
 
 
-        function prixTotal(prix) {
-            //console.log("Le prix est", data.price / 100);
-            let prixPanier = localStorage.getItem("PrixTotal");
-
-            if(prixPanier != null){
-                prixPanier = parseInt(prixPanier);
-                localStorage.setItem("PrixTotal", prixPanier + prix);
-            } else {
-                localStorage.setItem("PrixTotal", prix);
-            }
-
-            //console.log("mon panier coûte", prixPanier);
-        };
-
-
-
-    } else if (this.readyState == 4 && this.status == 400){
+    } 
+    else if (this.readyState == 4 && this.status == 400){
         alert ("Erreur 404!");
     };
     
 };
 
-
-/*let quantite = document.createElement("select");
-quantite.className = "Quantite";
-achat.appendChild(quantite);
-
-let x = 10;
-
-for ( let i=0; i < x; i++){
-    let qte = i;
-    let ol = document.createElement("option");
-    ol.textContent = qte;
-    ol.value = qte;
-    quantite.appendChild(ol);
-}*/
-
-
-
+console.log("http://localhost:3000/api/teddies/"+ urlParam.get('id'));
 ours.open ("GET", "http://localhost:3000/api/teddies/"+ urlParam.get('id'),true); 
 ours.send (); //envoie de la requête
