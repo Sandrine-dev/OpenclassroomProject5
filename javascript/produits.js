@@ -23,7 +23,7 @@ ours.onreadystatechange = function (){ // traitement de la requête
             presentation += "<img class='Images card-img-top' src=" + data.imageUrl + " alt= " + data.name + ">";
             presentation += "<p class='Description card-txt'>" + data.description + "</p>"
         let bouton = "<h6>" + prix + " €</h6>";
-            bouton += "<button type='button' id='ajout-panier' data-id='" + data.id + "' data-name='" + data.name + "' data-price='" + data.price / 100 + "' class='btn bg-brown text-white'> ajoutez au panier </button>";
+            bouton += "<button type='button' id='ajout-panier' data-id='" + data.id + "' data-name='" + data.name + "' data-price='" + prix / 100 + "' class='btn bg-brown text-white'> ajoutez au panier </button>";
 
             //console.log(presentation);
             //console.log(bouton);
@@ -44,28 +44,63 @@ ours.onreadystatechange = function (){ // traitement de la requête
             ajoutPanier.addEventListener('click', () => {
                 //console.log("ajouté au panier");
 
-                let choixCouleur = document.getElementById("choix").value; //afin de faire l'avertissement si la valeur est null
+            let choixCouleur = document.getElementById("choix").value; //afin de faire l'avertissement si la valeur est null
 
-                if (choixCouleur === ""){
-                    alert ("Veuillez choisir une couleur!");
+            if (choixCouleur === ""){
+                alert ("Veuillez choisir une couleur!");
+            }
+
+            /*let produitPanier = localStorage.getItem("produitPanier")
+
+            if (produitPanier !== null) {
+                produitPanier = JSON.parse(produitPanier);
+                for (let i=0; i < produitPanier.length; ++i) {
+                    produitPanierId = (produitPanier[i].id);
+                    
+                    console.log(produitPanierId);
                 }
+            } else {
+                produitPanier = [];
+            }*/
+
+
+
+
 
                 stockPanier(data);
-        })
 
+        })
+        
         function stockPanier(data) {
             //console.log ("le produit choisie est ", data);
-            let qte = localStorage.getItem (data._id);
+            let idJson = localStorage.getItem (data._id);
+            let qte = localStorage.getItem ("ProduitPanier");
+
             //console.log(typeof produits);
            // produits = parseInt(produits);
+           if (qte === null){
+            localStorage.setItem("ProduitPanier" , 1 );
+           }
+           else {
+            let i_qte = parseInt(qte);
+            localStorage.setItem("ProduitPanier" , i_qte + 1);
 
-           if(qte === null){ 
-                localStorage.setItem(data._id, 1);
+           }
+           
+           if(idJson === null){ 
+               data.qte = 1;
+               localStorage.setItem(data._id, JSON.stringify(data));
+                
             } 
             else {
-                let i_qte = parseInt(qte);
-                localStorage.setItem(data._id, i_qte+1);
+                let list = JSON.parse(idJson);
+                let qteID = list.qte;
+                let i_qteID = parseInt(qteID)+1;
+                list.qte = i_qteID;
+                localStorage.setItem(data._id, JSON.stringify(list));
             }
+
+            
         }
 
 
