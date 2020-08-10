@@ -7,7 +7,7 @@ let html = "" ;
 for(let i = 0; i < localStorage.length ; ++i){
     let clef = localStorage.key(i);
     if ( clef != "ProduitPanier"){
-        console.log(clef);
+        //console.log(clef);
         let ligne = JSON.parse( localStorage.getItem(clef));
         html += "<tr>";
         html += "<td>"+ligne._id+"</td>";    
@@ -18,13 +18,23 @@ for(let i = 0; i < localStorage.length ; ++i){
         html+= "</tr>";
         total += ligne.qte*ligne.price/100;
 
+        //validation(ligne);
     }
+    
+
 
 }
 
-console.log(html);
+//console.log(html);
 table.innerHTML = html;
 totalPanier.innerHTML = total;
+
+
+let viderPanier= document.getElementById("vider");
+    viderPanier.addEventListener("click" , () => {
+        localStorage.clear();
+        location.reload();
+    })
 
 let commande = document.getElementById("commande");
     commande.addEventListener("click", () => {
@@ -34,6 +44,9 @@ let commande = document.getElementById("commande");
     let adresse = document.getElementById("adresse");
     let ville = document.getElementById("ville");
     let email = document.getElementById("email");
+    let liens = document.getElementsByTagName("a");
+        liens.href = "confirmation.html?nom=" + nom.value;
+    
 
 
     if(nom.value.length <2 || nom.value.length>30){
@@ -58,4 +71,14 @@ let commande = document.getElementById("commande");
     };
     return true;
 
-})
+    
+    //href='produit.html?nom=" + nom.value;
+
+});
+
+
+
+//function validation(ligne) {
+    //console.log (ligne);
+
+//}
