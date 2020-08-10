@@ -41,7 +41,7 @@ ours.onreadystatechange = function (){ // traitement de la requête
         achat.innerHTML += bouton;
 
         let ajoutPanier = document.getElementById("ajout-panier");
-            ajoutPanier.addEventListener('click', () => {
+            ajoutPanier.addEventListener("click", () => {
                 //console.log("ajouté au panier");
 
             let choixCouleur = document.getElementById("choix").value; //afin de faire l'avertissement si la valeur est null
@@ -49,23 +49,6 @@ ours.onreadystatechange = function (){ // traitement de la requête
             if (choixCouleur === ""){
                 alert ("Veuillez choisir une couleur!");
             }
-
-            /*let produitPanier = localStorage.getItem("produitPanier")
-
-            if (produitPanier !== null) {
-                produitPanier = JSON.parse(produitPanier);
-                for (let i=0; i < produitPanier.length; ++i) {
-                    produitPanierId = (produitPanier[i].id);
-                    
-                    console.log(produitPanierId);
-                }
-            } else {
-                produitPanier = [];
-            }*/
-
-
-
-
 
                 stockPanier(data);
 
