@@ -1,8 +1,19 @@
 let total = 0;
 let table = document.getElementById("cart-tablebody");
 let totalPanier  = document.getElementById("Total");
-//console.log(localStorage.length);
+let lastName = document.getElementById("nom");
+let firstName = document.getElementById("prenom");
+let address = document.getElementById("adresse");
+let city = document.getElementById("ville");
+let email = document.getElementById("email");
+
+let products = [];
+let Contact = {};
+let data = {};
 let html = "" ;
+
+//console.log(localStorage.length);
+               
 
 for(let i = 0; i < localStorage.length ; ++i){
     let clef = localStorage.key(i);
@@ -17,18 +28,14 @@ for(let i = 0; i < localStorage.length ; ++i){
         html += "<td>"+ligne.qte*ligne.price/100+" €</td>";
         html+= "</tr>";
         total += ligne.qte*ligne.price/100;
-
-        //validation(ligne);
+        products[i] = ligne._id;
     }
-    
-
-
 }
 
+//console.log(listID);
 //console.log(html);
 table.innerHTML = html;
 totalPanier.innerHTML = total;
-
 
 let viderPanier= document.getElementById("vider");
     viderPanier.addEventListener("click" , () => {
@@ -36,49 +43,81 @@ let viderPanier= document.getElementById("vider");
         location.reload();
     })
 
-let commande = document.getElementById("commande");
-    commande.addEventListener("click", () => {
+//function validation(){
 
-    let nom = document.getElementById("nom");
-    let prenom = document.getElementById("prenom");
-    let adresse = document.getElementById("adresse");
-    let ville = document.getElementById("ville");
-    let email = document.getElementById("email");
-    let liens = document.getElementsByTagName("a");
-        liens.href = "confirmation.html?nom=" + nom.value;
     
-
-
-    if(nom.value.length <2 || nom.value.length>30){
+    /*if(lastName.value.length <2 || lastName.value.length>30){
         alert ("Veuillez remplir correctement le champ Nom!");
         return false;
     }   
-    if(prenom.value.length <2 || prenom.value.length>30){
+    if(firstName.value.length <2 || firstName.value.length>30){
         alert( "Veuillez remplir correctement le champ Prénom!");
         return false;
     }
-    if(adresse.value.length <5 || adresse.value.length>250){
+    if(address.value.length <5 || address.value.length>250){
         alert( "Veuillez remplir correctement le champ adresse!");
         return false;
     }
-    if(ville.value.length <2 || ville.value.length>70){
+    if(city.value.length <2 || city.value.length>70){
         alert( "Veuillez remplir correctement le champ ville!");
         return false;
     }
-    if(email.value.indexOf("@") == -1 || email.value.length <5 || email.value.indexOf(".") ==-1 || email.value.length >250){
+    if(email.value.indexOf("@") == -1 || email.value.length <5 || email.value.indexOf(".") ==-1 || email.length >250){
         alert( "Veuillez remplir correctement le champ email!");
         return false;
-    };
+    }
     return true;
+};*/
 
-    
-    //href='produit.html?nom=" + nom.value;
+function sending(url, order) {
+    return new Promise(function (resolve, reject) {
+        let request = new XMLHttpRequest();
+        request.onreadystatechange = function (response) {
+           if (this.readyState == 4 && this.status == 201) {
+                resolve (JSON.parse(this.responseText).orderId);
+                
+            } else if (this.readyState == 4 && this.status == 404){
+                reject ("fail !!!!");
+            }
+        };
+        request.open("POST", url);
+        request.setRequestHeader("Content-Type", "application/json");
+        request.send(order);
+    });
+};
 
+
+
+let commande = document.getElementById("commande");
+commande.addEventListener("click", () => {
+
+
+    //if(validation() == true){
+
+        Contact["lastName"] = "lastName.value";
+        Contact["firstName"] = "firstName.value";
+        Contact["address"] = "address.value";
+        Contact["city"] = "city.value";
+        Contact["email"] = "email.value";
+
+        //console.log(contact);
+
+
+        data["contact"] = Contact;
+        data["products"] = products;
+
+        //console.log(data);
+        //console.log(JSON.stringify(data));
+
+        let dataJson = JSON.stringify(data);
+
+        //console.log(datajson);
+
+        sending("http://localhost:3000/api/teddies/order", dataJson).then(function (orderId) { 
+            localStorage.setItem("contact",  JSON.stringify(Contact));
+            localStorage.setItem("orderId", orderId);
+            window.location.href = "confirmation.html";
+        }, function (failed){console.log(failed);});
+
+       
 });
-
-
-
-//function validation(ligne) {
-    //console.log (ligne);
-
-//}

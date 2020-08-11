@@ -60,14 +60,13 @@ ours.onreadystatechange = function (){ // traitement de la requête
             let qte = localStorage.getItem ("ProduitPanier");
 
             //console.log(typeof produits);
-           // produits = parseInt(produits);
-           if (qte === null){
-            localStorage.setItem("ProduitPanier" , 1 );
-           }
-           else {
-            let i_qte = parseInt(qte);
-            localStorage.setItem("ProduitPanier" , i_qte + 1);
-
+            // produits = parseInt(produits);
+            if (qte === null){
+                localStorage.setItem("ProduitPanier" , 1 );
+            }
+            else {
+                let i_qte = parseInt(qte);
+                localStorage.setItem("ProduitPanier" , i_qte + 1);
            }
            
            if(idJson === null){ 
@@ -94,6 +93,6 @@ ours.onreadystatechange = function (){ // traitement de la requête
     
 };
 
-console.log("http://localhost:3000/api/teddies/"+ urlParam.get('id'));
+//console.log("http://localhost:3000/api/teddies/"+ urlParam.get('id'));
 ours.open ("GET", "http://localhost:3000/api/teddies/"+ urlParam.get('id'),true); 
 ours.send (); //envoie de la requête
