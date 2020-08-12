@@ -17,7 +17,7 @@ let html = "" ;
 
 for(let i = 0; i < localStorage.length ; ++i){
     let clef = localStorage.key(i);
-    if ( clef != "ProduitPanier"){
+    if ( clef !== "ProduitPanier"){
         //console.log(clef);
         let ligne = JSON.parse( localStorage.getItem(clef));
         html += "<tr>";
@@ -114,9 +114,10 @@ commande.addEventListener("click", () => {
         //console.log(datajson);
 
         sending("http://localhost:3000/api/teddies/order", dataJson).then(function (orderId) { 
+            //localStorage.clearItem();
             localStorage.setItem("contact",  JSON.stringify(Contact));
             localStorage.setItem("orderId", orderId);
-            window.location.href = "confirmation.html";
+            //window.location.href = "confirmation.html";
         }, function (failed){console.log(failed);});
 
        
