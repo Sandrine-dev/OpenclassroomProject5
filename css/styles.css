@@ -10066,10 +10066,23 @@ em {
   font-style: normal;
 }
 
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#remerciement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 #remerciement p {
   font-size: 18px;
 }
-
 #remerciement h5 {
   font-size: 20px;
 }

@@ -147,10 +147,23 @@ em{
     font-style: normal;
 }
 
-#remerciement p{
-    font-size: 18px;
+.confirmation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-#remerciement h5{
+#remerciement{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p{
+    font-size: 18px;
+    }
+    h5{
     font-size: 20px;
+    }
 }
