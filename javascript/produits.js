@@ -7,6 +7,10 @@ let produitsP = document.getElementById ("ProduitP"); // appel de l'id ProduitP
 let achat = document.getElementById ("achat");
 let choix = document.getElementById("choix");
 
+let ol = document.createElement("option");
+    ol.textContent = "";
+choix.appendChild(ol);
+
 
 let ours = new XMLHttpRequest (); //création de la variable requête
 
@@ -49,8 +53,9 @@ ours.onreadystatechange = function (){ // traitement de la requête
             if (choixCouleur === ""){
                 alert ("Veuillez choisir une couleur!");
             }
-
+            else{
                 stockPanier(data);
+            }
 
         })
         
