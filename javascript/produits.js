@@ -19,11 +19,11 @@ ours.onreadystatechange = function (){ // traitement de la requête
         let prix = data.price / 100;
         //console.log(couleurs);
         //console.log (this.response);
-        let presentation = "<h5 class='Nom card-title'> Je m'appelle " + data.name + "!</h5>";
+        let presentation = "<h5 class='Nom card-title'>Rencontrez " + data.name + "!</h5>";
             presentation += "<img class='Images card-img-top' src=" + data.imageUrl + " alt= " + data.name + ">";
             presentation += "<p class='Description card-txt'>" + data.description + "</p>"
         let bouton = "<h6>" + prix + " €</h6>";
-            bouton += "<button type='button' id='ajout-panier' data-id='" + data.id + "' data-name='" + data.name + "' data-price='" + prix / 100 + "' class='btn bg-brown text-white'> ajoutez au panier </button>";
+            bouton += "<button type='button' id='ajout-panier' data-id='" + data.id + "' data-name='" + data.name + "' data-price='" + prix / 100 + "' class='btn bg-brown'> ajoutez au panier </button>";
 
             //console.log(presentation);
             //console.log(bouton);

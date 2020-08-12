@@ -17,8 +17,8 @@ let id = localStorage.getItem(orderId);
 //console.log(id);
 //console.log(prix);
 
-let html = "<p>Orinoco vous remercie <span>" + nomPrenom.lastName + " " + nomPrenom.firstName + "</span> de votre achat sur leur site </p>";
-    html += "<p>Votre commande <span>n° \"" + id + "\"</span> d'un montant totale de <span>" + prix + " €</span> à bien été pris en compte </p>";
+let html = "<p>Orinoco vous remercie <em>" + nomPrenom.lastName + " " + nomPrenom.firstName + "</em> de votre achat sur leur site </p>";
+    html += "<p>Votre commande <em>n° \"" + id + "\"</em> d'un montant totale de <em>" + prix + " €</em> à bien été pris en compte </p>";
     html += "<h5>Nous espérons vous revoir bientôt!</h5>";
 
 merci.innerHTML = html;

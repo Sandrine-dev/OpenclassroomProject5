@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Orinoco votre panier">
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -54,8 +54,7 @@
                 <table class="table" >
                     <thead>
                         <tr>
-                            <th class="id">Article</th>
-                            <th class="Nom">Nom</th>
+                            <th class="Nom">Article</th>
                             <th class="¨Prix">Prix</th>
                             <th class="Quantité">Quantité</th>
                             <th class="Subtotal">Total</th>
@@ -63,49 +62,46 @@
                     </thead>
                     <tbody id="cart-tablebody"></tbody>
                 </table>
-                
-                <p>Total du panier: <span id="Total"></span> €</p>
-
-                <button id="vider">Vider mon panier</button>
+               
+                    <p>Total du panier: <span id="Total"></span> €</p>
 
             </div>
 
-            <div class="row">
+            <div class="display">
 
-                <article id="formulaire">
+                <article id="formulaire" class="row">
 
                     <form id="monformulaire">
                         <h3>Informations</h3>
                         
-                        <div class="input_field">
-                            <label for="nom">Nom:</label>
-                            <input type="text" placeholder="nom" id="nom">
-                        </div>
+                        <label for="nom">Nom:</label>
+                        <input type="text" placeholder="nom" id="nom"class="champ">
+                        <br>
+                        
+                        <label for="prenom">Prénom:</label>
+                        <input type="text" placeholder="prénom" id="prenom"class="champ">
+                        <br>
 
-                        <div class="input_field">
-                            <label for="prenom">Prénom:</label>
-                            <input type="text" placeholder="prénom" id="prenom">
-                        </div>
-                        
-                        <div class="input_field">
-                            <label for="adresse">Adresse:</label>
-                            <input type="text" placeholder="adresse" id="adresse">
-                        </div>
-                        
-                        <div class="input_field">
-                            <label for="ville">Ville:</label>
-                            <input type="text" placeholder="ville" id="ville">
-                        </div>
-                        
-                        <div class="input_field">
-                            <label for="email">E-mail:</label>
-                            <input type="text" placeholder="email" id="email">
-                        </div>
+                        <label for="adresse">Adresse:</label>
+                        <input type="text" placeholder="adresse" id="adresse" class="champ">
+                        <br>
+                    
+                        <label for="ville">Ville:</label>
+                        <input type="text" placeholder="ville" id="ville" class="champ">
+                        <br>
+
+                        <label for="email">E-mail:</label>
+                        <input type="text" placeholder="email" id="email" class="champ">
 
                     </form>
-                    <input type="submit" id="commande">
+
+                    <input type="submit" id="commande" class="btn bg-brown valide">
                 </article> 
-        
+
+                <article class="boutonChoix">
+                    <button id="vider" class="btn bg-brown">Vider mon panier</button>
+                    <button id="Accueil" class="btn bg-brown">Accueil</button>
+                </article>
                 
                 
 
@@ -117,24 +113,26 @@
         <footer class="container-fluid">
             <!--Contiendra mentions légales, résaux, contacts-->
             <div class="row bg-brown resaux">
-                <a href="#">Mentions légales</a>
-          
-                <a class="social" href="index.html" aria-describedby="facebook">
-                    <i class="fab fa-facebook-f"></i>
+              <a href="#" class="text-white">Mentions légales</a>
+    
+              <div class="emot">      
+                <a class="social text-white" href="index.html" aria-describedby="facebook">
+                  <i class="fab fa-facebook-f"></i>
                 </a>
-          
-                <a class="social" href="index.html" aria-describedby="twitter">
-                    <i class="fab fa-twitter"></i>
+            
+                <a class="social text-white" href="index.html" aria-describedby="twitter">
+                  <i class="fab fa-twitter"></i>
                 </a>
-          
-                <a class="social" href="index.html" aria-describedby="instagram">
-                    <i class="fab fa-instagram"></i>
+            
+                <a class="social text-white" href="index.html" aria-describedby="instagram">
+                  <i class="fab fa-instagram"></i>
                 </a>
+              </div>
           
-                <a href="#">Contactez nous</a>
+              <a href="#" class="text-white">Contactez nous</a>
           
             </div>
-        </footer>
+          </footer>
 
         <script src="javascript/panier.js"></script>
     </body>

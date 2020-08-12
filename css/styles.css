@@ -9909,6 +9909,49 @@ h3 {
     border-color: #dee2e6;
   }
 }
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+nav a:hover {
+  animation: shake 0.8s;
+}
+
 .bg-brown {
   background-color: #6D4C41;
 }
@@ -9917,17 +9960,118 @@ h3 {
   background-color: #D7CCC8;
 }
 
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card {
   align-items: center;
   margin: 10px;
   border: #6D4C41 solid 2px;
   padding: 5px;
-  box-shadow: 5px 5px #D7CCC8;
+}
+.card h5 {
+  font-size: 20px;
+}
+.card p {
+  font-size: 18px;
+}
+
+.card-liens {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.card-liens a {
+  margin: 2px 10px;
 }
 
 .btn {
   padding-top: 5px;
   align-self: stretch;
+  transform: scale(1);
+  color: white;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+.btn:hover {
+  transform: scale(1.25);
+  color: white;
+}
+.btn:focus {
+  background-color: white;
+  color: #6D4C41;
+}
+
+.boutonChoix .btn {
+  margin: 2px 10px;
+}
+
+.resaux {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 8px;
+  font-size: 15px;
+}
+.resaux a {
+  text-decoration: none;
+}
+.resaux a:hover {
+  animation: shake 0.5s infinite;
+}
+.resaux .emot .fab {
+  transform: scale(1);
+}
+.resaux .emot .fab:hover {
+  transform: scale(1.4);
+}
+.resaux .emot .fab:focus {
+  transform: scale(1.5);
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px;
+  justify-content: center;
+  align-items: center;
+}
+.display #formulaire {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  width: 100%;
+}
+.display #formulaire #monformulaire {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.display #formulaire #monformulaire .champ {
+  width: 100%;
+}
+.display #formulaire #monformulaire input {
+  width: 100%;
+}
+
+.valide {
+  margin-top: 10px;
+}
+
+em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+#remerciement p {
+  font-size: 18px;
+}
+
+#remerciement h5 {
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */
