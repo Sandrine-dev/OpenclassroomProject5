@@ -14,7 +14,7 @@ choix.appendChild(ol);
 
 let ours = new XMLHttpRequest (); //création de la variable requête
 
-ours.onreadystatechange = function (){ // traitement de la requête
+ours.onReadyStateChange = function (){ // traitement de la requête
     //console.log (this);
 
     if (this.readyState == 4 && this.status == 200) {

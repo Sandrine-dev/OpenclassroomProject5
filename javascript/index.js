@@ -1,7 +1,7 @@
 let produit = document.getElementById ("Produits"); //Création de la variable produit sur l'id 'Produits'
 let teddy = new XMLHttpRequest (); //Création de la variable Teddy qui va afficher la requête server
 
-teddy.onreadystatechange = function (){ //function pour aller chercher sur le server les infos utiles
+teddy.onReadyStateChange = function (){ //function pour aller chercher sur le server les infos utiles
     //console.log(this);
 
     if (this.readyState == 4 && this.status == 200) {
