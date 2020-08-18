@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "sass" : "sass --watch ./scss/styles.scss:./css/styles.css"
+    "sass": "sass --watch ./scss/styles.scss:./css/styles.css"
   },
   "author": "",
   "license": "ISC",
@@ -20,5 +20,13 @@
     "mongoose-unique-validator": "^2.0.2",
     "uuid": "^3.3.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandrine-dev/OpenclassroomProject5.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sandrine-dev/OpenclassroomProject5/issues"
+  },
+  "homepage": "https://github.com/Sandrine-dev/OpenclassroomProject5#readme"
 }

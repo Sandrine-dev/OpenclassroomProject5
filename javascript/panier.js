@@ -72,7 +72,7 @@ function validation(){
 function sending(url, order) {
     return new Promise(function (resolve, reject) {
         let request = new XMLHttpRequest();
-        request.onReadyStateChange = function (response) {
+        request.onreadystatechange = function (response) {
            if (this.readyState == 4 && this.status == 201) {
                 resolve (JSON.parse(this.responseText).orderId);
                 
