@@ -20,8 +20,7 @@ for(let i = 0; i < localStorage.length ; ++i){
     if ( clef !== "ProduitPanier"){
         //console.log(clef);
         let ligne = JSON.parse( localStorage.getItem(clef));
-        html += "<tr>"; 
-        html += "<td>"+ligne._id+"</td>";  
+        html += "<tr>";  
         html += "<td>"+ligne.name+"</td>";
         html += "<td>"+ligne.price/100+" €</td>";
         html += "<td>"+ligne.qte+"</td>";
