@@ -28,7 +28,8 @@ for(let i = 0; i < localStorage.length ; ++i){
         html += "<td>"+ligne.qte*ligne.price/100+" €</td>";
         html+= "</tr>";
         total += ligne.qte*ligne.price/100;
-        products[i] = ligne._id;
+        let i = ligne._id;
+        products.push(i);
     }
 }
 
@@ -43,10 +44,10 @@ let viderPanier= document.getElementById("vider");
         location.reload();
     })
 
-//function validation(){
+function validation(){
 
     
-    /*if(lastName.value.length <2 || lastName.value.length>30){
+    if(lastName.value.length <2 || lastName.value.length>30){
         alert ("Veuillez remplir correctement le champ Nom!");
         return false;
     }   
@@ -67,7 +68,7 @@ let viderPanier= document.getElementById("vider");
         return false;
     }
     return true;
-};*/
+};
 
 function sending(url, order) {
     return new Promise(function (resolve, reject) {
@@ -92,13 +93,13 @@ let commande = document.getElementById("commande");
 commande.addEventListener("click", () => {
 
 
-    //if(validation() == true){
+    if(validation() == true){
 
-        Contact["lastName"] = "lastName.value";
-        Contact["firstName"] = "firstName.value";
-        Contact["address"] = "address.value";
-        Contact["city"] = "city.value";
-        Contact["email"] = "email.value";
+        Contact["lastName"] = lastName.value;
+        Contact["firstName"] = firstName.value;
+        Contact["address"] = address.value;
+        Contact["city"] = city.value;
+        Contact["email"] = email.value;
 
         //console.log(contact);
 
@@ -114,12 +115,12 @@ commande.addEventListener("click", () => {
         //console.log(datajson);
 
         sending("http://localhost:3000/api/teddies/order", dataJson).then(function (orderId) { 
-            //localStorage.clear();
+            localStorage.clear();
             localStorage.setItem("contact",  JSON.stringify(Contact));
             localStorage.setItem("total", total);
             localStorage.setItem("orderId", orderId);
-            //window.location.href = "confirmation.html";
+            window.location.href = "confirmation.html";
         }, function (failed){console.log(failed);});
-
+    }
        
 });
