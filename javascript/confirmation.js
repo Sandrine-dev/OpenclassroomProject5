@@ -1,7 +1,7 @@
 let merci = document.getElementById("remerciement");
 let button = document.getElementById("Acceuil");
 
-let contact = localStorage.key(0);
+let contact = localStorage.key(0); //récupération des informations dans le localStorage
 let total = localStorage.key(1);
 let orderId = localStorage.key(2);
 
@@ -23,5 +23,5 @@ let html = "<p>Orinoco vous remercie <em>" + nomPrenom.lastName + " " + nomPreno
 
 merci.innerHTML = html;
 
-localStorage.clear();
+localStorage.clear(); //suppression des infos dans le localStorage
 

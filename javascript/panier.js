@@ -7,7 +7,7 @@ let address = document.getElementById("adresse");
 let city = document.getElementById("ville");
 let email = document.getElementById("email");
 
-let products = [];
+let products = []; //Création des tableaux à envoyer au serveur
 let Contact = {};
 let data = {};
 let html = "" ;
@@ -16,7 +16,7 @@ let html = "" ;
                
 
 for(let i = 0; i < localStorage.length ; ++i){
-    let clef = localStorage.key(i);
+    let clef = localStorage.key(i); //récupération des informations à partir du localStorage
     if ( clef !== "ProduitPanier"){
         //console.log(clef);
         let ligne = JSON.parse( localStorage.getItem(clef));
@@ -28,7 +28,7 @@ for(let i = 0; i < localStorage.length ; ++i){
         html+= "</tr>";
         total += ligne.qte*ligne.price/100;
         let i = ligne._id;
-        products.push(i);
+        products.push(i);//Envois de l'id dans le tableau products
     }
 }
 
@@ -37,13 +37,13 @@ for(let i = 0; i < localStorage.length ; ++i){
 table.innerHTML = html;
 totalPanier.innerHTML = total;
 
-let viderPanier= document.getElementById("vider");
+let viderPanier= document.getElementById("vider"); //Event Listener pour vider le panier
     viderPanier.addEventListener("click" , () => {
         localStorage.clear();
         location.reload();
     })
 
-function validation(){
+function validation(){ //Function qui vérfie les informations remplis dans les champs form
 
     
     if(lastName.value.length <2 || lastName.value.length>30){
@@ -69,7 +69,7 @@ function validation(){
     return true;
 };
 
-function sending(url, order) {
+function sending(url, order) { //Création de la promise pour envoyer les information avec POST
     return new Promise(function (resolve, reject) {
         let request = new XMLHttpRequest();
         request.onreadystatechange = function (response) {
@@ -92,7 +92,7 @@ let commande = document.getElementById("commande");
 commande.addEventListener("click", () => {
 
 
-    if(validation() == true){
+    if(validation() == true){ //Compléte les tableau Contact,data si la validation est faite
 
         Contact["lastName"] = lastName.value;
         Contact["firstName"] = firstName.value;
@@ -113,7 +113,7 @@ commande.addEventListener("click", () => {
 
         //console.log(datajson);
 
-        sending("http://localhost:3000/api/teddies/order", dataJson).then(function (orderId) { 
+        sending("http://localhost:3000/api/teddies/order", dataJson).then(function (orderId) {  //envois des inforamtions et supprime celle inutile, puis redirection
             localStorage.clear();
             localStorage.setItem("contact",  JSON.stringify(Contact));
             localStorage.setItem("total", total);

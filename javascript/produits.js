@@ -32,7 +32,7 @@ ours.onreadystatechange = function (){ // traitement de la requête
             //console.log(presentation);
             //console.log(bouton);
 
-        for (let i=0; i< couleurs.length; i++ ){
+        for (let i=0; i< couleurs.length; i++ ){ //Création des option de la liste déroulante
             let opt = couleurs[i];
             let el = document.createElement("option");
                 el.textContent = opt;
@@ -44,7 +44,7 @@ ours.onreadystatechange = function (){ // traitement de la requête
         produitsP.innerHTML += presentation;
         achat.innerHTML += bouton;
 
-        let ajoutPanier = document.getElementById("ajout-panier");
+        let ajoutPanier = document.getElementById("ajout-panier"); //Création de l'enventlistener pour chaque clique sur ajout panier
             ajoutPanier.addEventListener("click", () => {
                 //console.log("ajouté au panier");
 
@@ -59,10 +59,10 @@ ours.onreadystatechange = function (){ // traitement de la requête
 
         })
         
-        function stockPanier(data) {
+        function stockPanier(data) { //création de la fonction pour le localStorage
             //console.log ("le produit choisie est ", data);
-            let idJson = localStorage.getItem (data._id);
-            let qte = localStorage.getItem ("ProduitPanier");
+            let idJson = localStorage.getItem (data._id); //Envois des information au localStorage d'après l'id
+            let qte = localStorage.getItem ("ProduitPanier"); //Envois au localStorage la quantité
 
             //console.log(typeof produits);
             // produits = parseInt(produits);
@@ -75,7 +75,7 @@ ours.onreadystatechange = function (){ // traitement de la requête
            }
            
            if(idJson === null){ 
-               data.qte = 1;
+               data.qte = 1; //Création du nouvelle cas dans le tableau data : la quantité
                localStorage.setItem(data._id, JSON.stringify(data));
                 
             } 
