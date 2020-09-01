@@ -9948,6 +9948,10 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+section {
+  margin-bottom: 50px;
+}
+
 nav a:hover {
   animation: shake 0.8s;
 }
